@@ -1,0 +1,5 @@
+﻿{
+	"GridSize": 4,
+	"TargetScore": 2048,
+	"MaxUndo": 1
+}
