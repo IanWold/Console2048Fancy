@@ -64,8 +64,4 @@ public record GameState(GameSettings Settings, int Score = 0, bool IsForfeit = f
 			Grid = currentGrid.AddRandom(Settings.GridSize)
 		};
 	}
-
-	public void Write()
-	{
-	}
 }
