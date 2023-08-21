@@ -1,4 +1,4 @@
-﻿using Console2048Functional;
+﻿using Console2048Fancy;
 using System.Text.Json;
 
 var startingBackgroundColor = Console.BackgroundColor;
