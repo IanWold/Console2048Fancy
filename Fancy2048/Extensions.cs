@@ -1,6 +1,6 @@
-﻿namespace Console2048Fancy;
+﻿namespace Fancy2048;
 
-public static class Extensions
+internal static class Extensions
 {
 	static readonly Random _random = new();
 
@@ -47,14 +47,14 @@ public static class Extensions
 		return newGrid;
 	}
 
-	public static int[,] Rotate(this int[,] grid, int gridSize, int timesToRotate) =>
+	internal static int[,] Rotate(this int[,] grid, int gridSize, int timesToRotate) =>
 		timesToRotate == 0
 		? grid.GetClone(gridSize)
 		: Math.Abs(timesToRotate) == 2
 			? grid.Flip(gridSize)
 			: grid.Rotate(gridSize, timesToRotate > 0);
 
-	public static int[,] Shift(this int[,] grid, int gridSize, int row)
+	internal static int[,] Shift(this int[,] grid, int gridSize, int row)
 	{
 		var newGrid = grid.GetClone(gridSize);
 
@@ -78,7 +78,7 @@ public static class Extensions
 		return newGrid;
 	}
 
-	public static int[,] AddRandom(this int[,] grid, int gridSize)
+	internal static int[,] AddRandom(this int[,] grid, int gridSize)
 	{
 		var newGrid = grid.GetClone(gridSize);
 		int row, column;
@@ -98,7 +98,7 @@ public static class Extensions
 		return newGrid;
 	}
 
-	public static bool Any(this int[,] grid, Predicate<int> predicate)
+	internal static bool Any(this int[,] grid, Predicate<int> predicate)
 	{
 		foreach (var i in grid)
 		{
@@ -111,7 +111,7 @@ public static class Extensions
 		return false;
 	}
 
-	public static bool SequenceEqual(this int[,] first, int[,] second) =>
+	internal static bool SequenceEqual(this int[,] first, int[,] second) =>
 		first.Rank == second.Rank
 		&& Enumerable.Range(0, first.Rank).All(dimension => first.GetLength(dimension) == second.GetLength(dimension))
 		&& first.Cast<int>().SequenceEqual(second.Cast<int>());

@@ -1,4 +1,4 @@
-﻿namespace Console2048Fancy;
+﻿namespace Fancy2048;
 
 public enum GameResult
 {

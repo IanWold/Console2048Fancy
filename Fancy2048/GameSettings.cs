@@ -1,3 +1,3 @@
-﻿namespace Console2048Fancy;
+﻿namespace Fancy2048;
 
 public record GameSettings(int GridSize, int TargetScore, int MaxUndo);
