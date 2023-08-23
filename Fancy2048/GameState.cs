@@ -54,14 +54,11 @@ public record GameState(GameSettings Settings, int Score = 0, bool IsForfeit = f
 			Grid = currentGrid
 		};
 
-		if (newState.Result != GameResult.Ongoing)
-		{
-			return newState;
-		}
-
-		return newState with
-		{
-			Grid = currentGrid.AddRandom(Settings.GridSize)
-		};
+		return newState.Result != GameResult.Ongoing
+			? newState
+			: newState with
+			{
+				Grid = currentGrid.AddRandom(Settings.GridSize)
+			};
 	}
 }
